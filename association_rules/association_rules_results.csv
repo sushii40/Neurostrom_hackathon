@@ -1,0 +1,7 @@
+antecedents,consequents,support,confidence,lift
+frozenset({'High_Torque'}),frozenset({'Failure'}),0.49666666666666665,1.0,2.0
+"frozenset({'High_Torque', 'High_Air_Temperature'})",frozenset({'Failure'}),0.46,1.0,2.0
+"frozenset({'Low_Rotational_Speed', 'High_Torque'})",frozenset({'Failure'}),0.10666666666666667,1.0,2.0
+frozenset({'High_Torque'}),"frozenset({'High_Air_Temperature', 'Failure'})",0.46,0.9261744966442954,1.998937762541645
+frozenset({'High_Air_Temperature'}),frozenset({'Failure'}),0.4633333333333333,0.9266666666666666,1.8533333333333333
+frozenset({'High_Air_Temperature'}),"frozenset({'High_Torque', 'Failure'})",0.46,0.92,1.8523489932885908

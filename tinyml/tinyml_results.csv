@@ -1,0 +1,12 @@
+Metric,Value
+Accuracy,1.0
+Precision,1.0
+Recall,1.0
+F1 Score,1.0
+Training Time (seconds),0.0019297599792480469
+Average Inference Time (ms),0.0014170000031299423
+Tree Depth,3.0
+Tree Leaves,4.0
+Model Size (KB),1.61328125
+Scaler Size (KB),0.7333984375
+Total Model Size (KB),2.3466796875

@@ -1,0 +1,9 @@
+Constant_Features
+X1_ActualPosition_min
+X1_CommandPosition_min
+Z1_CommandVelocity_max
+S1_CommandVelocity_min
+S1_CommandVelocity_max
+S1_CommandAcceleration_max
+S1_OutputVoltage_min
+M1_CURRENT_FEEDRATE_max

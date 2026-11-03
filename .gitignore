@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Model artifacts and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.joblib
+*.pkl
+
+# Dashboard backup files
+dashboard/app_backup.py
+dashboard/app_old_backup.py
+dashboard/app_before_*.py
