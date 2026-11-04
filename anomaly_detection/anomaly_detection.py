@@ -1,5 +1,9 @@
+import os
 import sys
 from pathlib import Path
+
+# Silence core-counting warnings on Windows
+os.environ["LOKY_MAX_CPU_COUNT"] = "4"
 
 import numpy as np
 import pandas as pd
@@ -46,7 +50,6 @@ def generate_data():
             "true_label": 0
         })
 
-
     # --------------------------------------
     # FAULT DATA
     # --------------------------------------
@@ -69,7 +72,6 @@ def generate_data():
             "true_label": 1
         })
 
-
     return pd.DataFrame(data)
 
 
@@ -83,7 +85,6 @@ if __name__ == "__main__":
     print("       MACHINE ANOMALY DETECTION")
     print("========================================")
 
-
     # Generate data
     df = generate_data()
 
@@ -92,7 +93,6 @@ if __name__ == "__main__":
     print("Total samples :", len(df))
     print("Normal samples:", sum(df["true_label"] == 0))
     print("Fault samples :", sum(df["true_label"] == 1))
-
 
     # ======================================
     # FEATURES
@@ -107,18 +107,14 @@ if __name__ == "__main__":
     ]
 
     X = df[features]
-
     y_true = df["true_label"]
-
 
     # ======================================
     # STANDARDIZATION
     # ======================================
 
     scaler = StandardScaler()
-
     X_scaled = scaler.fit_transform(X)
-
 
     # ======================================
     # K-MEANS
@@ -147,7 +143,6 @@ if __name__ == "__main__":
     print("Homogeneity :", round(kmeans_homogeneity, 4))
     print("Completeness:", round(kmeans_completeness, 4))
 
-
     # ======================================
     # DBSCAN
     # ======================================
@@ -166,7 +161,6 @@ if __name__ == "__main__":
 
     print("Clusters detected :", len(set(dbscan_labels)) - (1 if -1 in dbscan_labels else 0))
     print("Anomalies detected:", dbscan_anomalies)
-
 
     # ======================================
     # HIERARCHICAL CLUSTERING
@@ -190,16 +184,8 @@ if __name__ == "__main__":
         hierarchical_labels
     )
 
-    print(
-        "Homogeneity :",
-        round(hierarchical_homogeneity, 4)
-    )
-
-    print(
-        "Completeness:",
-        round(hierarchical_completeness, 4)
-    )
-
+    print("Homogeneity :", round(hierarchical_homogeneity, 4))
+    print("Completeness:", round(hierarchical_completeness, 4))
 
     # ======================================
     # SUMMARY
@@ -211,18 +197,18 @@ if __name__ == "__main__":
     print("========================================")
 
     print(
-        f"K-Means       → "
+        f"K-Means       -> "
         f"Homogeneity={kmeans_homogeneity:.4f}, "
         f"Completeness={kmeans_completeness:.4f}"
     )
 
     print(
-        f"DBSCAN        → "
+        f"DBSCAN        -> "
         f"Anomalies={dbscan_anomalies}"
     )
 
     print(
-        f"Hierarchical  → "
+        f"Hierarchical  -> "
         f"Homogeneity={hierarchical_homogeneity:.4f}, "
         f"Completeness={hierarchical_completeness:.4f}"
     )
